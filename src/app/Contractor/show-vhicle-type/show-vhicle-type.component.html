@@ -1,0 +1,20 @@
+<h3 class="text-center">Vhicle Type Detail</h3>
+
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Vhicle Type Id</th>
+      <th scope="col">Vhicle Type Name</th>
+      <th scope="col">Store Vhicle Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vhicleType of vhicleTypes">
+      <th scope="row">{{vhicleType.vtypeid}}</th>
+      <td>{{vhicleType.vtypename}}</td>
+      <td>{{vhicleType.storeVType}}</td>
+    </tr>
+  </tbody>
+</table>
+

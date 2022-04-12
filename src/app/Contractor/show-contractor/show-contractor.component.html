@@ -1,0 +1,21 @@
+<h3 class="text-center">Contractor Detail</h3>
+
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Contractor Id</th>
+      <th scope="col">Contractor Name</th>
+      <th scope="col">Is Central Contractor</th>
+      <th scope="col">Warehouse Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contractor of contractors">
+      <th scope="row">{{contractor.contractorid}}</th>
+      <td>{{contractor.contractorname}}</td>
+      <td>{{contractor.isCentralContractor}}</td>
+      <td>{{contractor.whid}}</td>
+    </tr>
+  </tbody>
+</table>
