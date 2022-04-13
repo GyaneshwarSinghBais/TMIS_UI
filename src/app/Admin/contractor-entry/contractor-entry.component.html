@@ -1,0 +1,42 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="contractorName">Contractor Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="contractorName"
+          required
+          [(ngModel)]="contractor.contractorName"
+          name="contractorName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="isCentral">Is Central</label>
+        <input
+          class="form-control"
+          id="isCentralContractor"
+          required
+          [(ngModel)]="contractor.isCentralContractor"
+          name="isCentralContractor"
+        />
+      </div>
+      <div class="form-group">
+        <label for="whid">Warehouse</label>
+        <input
+          class="form-control"
+          id="whid"
+          required
+          [(ngModel)]="contractor.whid"
+          name="whid"
+        />
+      </div>
+      <button (click)="saveContractor()" class="btn btn-success">Submit</button>
+    </div>
+    <div *ngIf="submitted">
+      <h4>Tutorial was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newContractor()">Add</button>
+    </div>
+  </div>
+</div>

@@ -10,11 +10,13 @@ import { ShowContractorComponent } from './Contractor/show-contractor/show-contr
 import { ShowVhicleTypeComponent } from './Contractor/show-vhicle-type/show-vhicle-type.component';
 
 import { Routes, RouterModule } from '@angular/router';
+import { ContractorEntryComponent } from './Admin/contractor-entry/contractor-entry.component';
 
 const routes: Routes = [
   {path : '', component : AppComponent},
   {path : 'VhicleType', component : ShowVhicleTypeComponent},
-  {path : 'contractor', component : ShowContractorComponent}
+  {path : 'contractor', component : ShowContractorComponent},
+  {path : 'contractorEntry', component : ContractorEntryComponent}
 ];
 
 @NgModule({
@@ -22,7 +24,8 @@ const routes: Routes = [
     AppComponent,
     NavbarComponent,
     ShowContractorComponent,
-    ShowVhicleTypeComponent
+    ShowVhicleTypeComponent,
+    ContractorEntryComponent
   ],
   imports: [
     BrowserModule,

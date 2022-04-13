@@ -9,6 +9,7 @@ export class ContractorService {
 
   private baseURL = `https://localhost:44322/api`
 
+
   constructor(private http: HttpClient) { }
 
   getAllContractor(): Observable<any> {
@@ -18,4 +19,11 @@ export class ContractorService {
  getAllVhicleType(): Observable<any> {
   return this.http.get(`${this.baseURL}/VhicleType`)
 }
+
+create(data: any): Observable<any> {
+  console.log(data);
+  return this.http.post(`${this.baseURL}/Contractor`, data)
+}
+
+
 }
