@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContractorService } from 'src/app/contractor.service';
+import { TransportService } from 'src/app/services/transport.service';
 
 @Component({
   selector: 'app-show-vhicle-type',
@@ -8,7 +8,7 @@ import { ContractorService } from 'src/app/contractor.service';
 })
 export class ShowVhicleTypeComponent implements OnInit {
   vhicleTypes = null;
-  constructor(private api: ContractorService) { }
+  constructor(private api: TransportService) { }
 
   ngOnInit(): void {
     this.api.getAllVhicleType().subscribe((data)=>{

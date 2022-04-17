@@ -1,0 +1,34 @@
+<form [formGroup] = "form" (ngSubmit)="onClickSubmit()" novalidate>
+  <input type = "text"
+    name = "contractorname"
+    placeholder = "contractorname"
+    formControlName = "contractorname">
+    <div *ngIf="f['contractorname'].touched && f['contractorname'].invalid" class="alert alert-danger">
+      <div *ngIf="f['contractorname'].errors && f['contractorname'].errors['required']">contractorname is required.</div>
+      <div *ngIf="f['contractorname'].errors && f['contractorname'].errors['minlength']">contractorname should be 3 character.</div>
+  </div>
+  <br/>
+  <input type = "text"
+    name = "isCentralContractor"
+    placeholder = "isCentralContractor"
+    formControlName = "isCentralContractor">
+  <br/>
+  <!-- <input type = "number"
+    name = "whid"
+    placeholder = "whid"
+    formControlName = "whid"> -->
+
+
+     <label for="warehouse">Warehouse:</label>
+     <select formControlName="whid" class="form-control" name="warehouse">
+         <option disabled>Select Warehouse</option>
+         <option *ngFor="let wh of warehouses" [value]="wh.warehouseid">{{wh.warehousename}}</option>
+     </select>
+        <!-- error block -->
+        <!-- <div class="invalid-feedback" *ngIf="isSubmitted && cityName?.invalid">
+          <sup>*</sup>Please provide city name
+        </div> -->
+
+  <br/>
+  <input type = "submit" value = "submit">
+</form>

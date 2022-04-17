@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ContractorService } from 'src/app/contractor.service';
 import { Contractor } from 'src/app/models/contractor.model';
+import { TransportService } from 'src/app/services/transport.service';
 
 @Component({
   selector: 'app-contractor-entry',
@@ -15,7 +15,7 @@ export class ContractorEntryComponent implements OnInit {
     whid: 0,
   };
   submitted = false;
-  constructor(private api: ContractorService) { }
+  constructor(private api: TransportService) { }
   ngOnInit(): void {
   }
   saveContractor(): void {
