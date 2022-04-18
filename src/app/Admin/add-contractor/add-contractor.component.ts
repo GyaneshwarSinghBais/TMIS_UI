@@ -20,7 +20,9 @@ export class AddContractorComponent implements OnInit {
       this.warehouses = data;
     });
 
-    console.log(this.warehouses);
+    // console.log(this.warehouses);
+
+
   }
 
   addContractorForm() {
@@ -58,6 +60,18 @@ export class AddContractorComponent implements OnInit {
       },
       error: (e) => console.error(e)
     });
+  }
+
+  changeRadioIsCentral(e:any) {
+    console.log(e.target.value);
+    if(e.target.value == 'Y'){
+      //this.isCentralCont = false;
+      //this.form.get('whid')?.disabled;
+      console.log(this.form.getRawValue);
+    }else{
+      //this.isCentralCont = true;
+      this.form.get('whid')?.disabled;
+    }
   }
 
 }
