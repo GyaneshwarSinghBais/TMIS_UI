@@ -1,0 +1,48 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="container">
+  <h1>Update Vhicle</h1>
+
+  <a href="#" routerLink="/vhicle/vhicleindex" class="btn btn-primary">Back</a>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <input
+    formControlName="vtypeid"
+    id="vtypeid"
+    type="text"
+    [(ngModel)]="id"
+    value="hello" autocomplete="off" hidden>
+
+
+    <!-- [(ngModel)]="vhicle.vtypename" -->
+      <div class="form-group">
+          <label for="title">Vhicle Type:</label>
+          <input
+              formControlName="vtypename"
+              id="vtypename"
+              type="text"
+
+              class="form-control">
+          <div *ngIf="f['vtypename'].touched && f['vtypename'].invalid" class="alert alert-danger">
+              <div *ngIf="f['vtypename'].errors && f['vtypename'].errors['required']">Vhicle Type is required.</div>
+          </div>
+      </div>
+
+      <!-- [(ngModel)]="vhicle.storeVType" -->
+      <div class="form-group">
+          <label for="body">Remarks</label>
+          <textarea
+              formControlName="storeVType"
+              id="storeVType"
+              type="text"
+
+              class="form-control">
+          </textarea>
+          <div *ngIf="f['storeVType'].touched && f['storeVType'].invalid" class="alert alert-danger">
+              <div *ngIf="f['storeVType'].errors && f['storeVType'].errors['required']">Remark is required.</div>
+          </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+  </form>
+</div>

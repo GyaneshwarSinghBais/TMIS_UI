@@ -15,6 +15,12 @@ import { AddContractorComponent } from './Admin/add-contractor/add-contractor.co
 import { LoginComponent } from './login/login.component';
 import { NavbarAdminComponent } from './Admin/navbar-admin/navbar-admin.component';
 import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
+import { VhicleindexComponent } from './Admin/vhicle/vhicleindex/vhicleindex.component';
+import { VhicleviewComponent } from './Admin/vhicle/vhicleview/vhicleview.component';
+import { VhiclecreateComponent } from './Admin/vhicle/vhiclecreate/vhiclecreate.component';
+import { VhicleeditComponent } from './Admin/vhicle/vhicleedit/vhicleedit.component';
+
+
 
 const routes: Routes = [
   {path : '', component : LoginComponent},
@@ -23,7 +29,11 @@ const routes: Routes = [
   {path : 'contractorEntry', component : ContractorEntryComponent},
   {path : 'addContractor', component : AddContractorComponent},
   {path : 'login', component : LoginComponent},
-  {path : 'adminHome', component : AdminHomeComponent}
+  {path : 'adminHome', component : AdminHomeComponent},
+  {path : 'vhicle/vhicleindex', component : VhicleindexComponent},
+  {path : 'vhicle/:vtypeid/vhicleview', component : VhicleviewComponent},
+  {path : 'vhicle/vhiclecreate', component : VhiclecreateComponent},
+  {path : 'vhicle/:vtypeid/vhicleedit', component : VhicleeditComponent}
 ];
 
 @NgModule({
@@ -36,7 +46,11 @@ const routes: Routes = [
     AddContractorComponent,
     LoginComponent,
     NavbarAdminComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    VhicleindexComponent,
+    VhicleviewComponent,
+    VhiclecreateComponent,
+    VhicleeditComponent
   ],
   imports: [
     BrowserModule,

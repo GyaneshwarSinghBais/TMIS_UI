@@ -1,0 +1,25 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="container">
+
+  <h1>Vhicles</h1>
+
+  <a href="#" routerLink="/vhicle/vhiclecreate/" class="btn btn-success mt-3">Create New Post</a>
+
+  <table class="table table-bordered table-hover table-active mt-3" style="border: 1px;">
+    <tr>
+      <th>ID</th>
+      <th>Vhicle Type Name</th>
+      <th>Remarks</th>
+    </tr>
+    <tr *ngFor="let vhicle of vhicles">
+      <td>{{ vhicle.vtypeid }}</td>
+      <td>{{ vhicle.vtypename }}</td>
+      <td>{{ vhicle.storeVType }}</td>
+      <td>
+        <a  [routerLink]="['/vhicle/', vhicle.vtypeid, 'vhicleview']" class="btn btn-info bg-info " style="width:80px">View</a> &nbsp;
+        <a  [routerLink]="['/vhicle/', vhicle.vtypeid, 'vhicleedit']" class="btn btn-primary bg-primary"  style="width:80px">Edit</a> &nbsp;
+        <button type="button" (click)="deletePost(vhicle.vtypeid)" class="btn btn-danger bg-danger"  style="width:80px">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
