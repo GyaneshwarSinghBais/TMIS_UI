@@ -16,9 +16,9 @@
       <td>{{ vhicle.vtypename }}</td>
       <td>{{ vhicle.storeVType }}</td>
       <td>
-        <a  [routerLink]="['/vhicle/', vhicle.vtypeid, 'vhicleview']" class="btn btn-info bg-info " style="width:80px">View</a> &nbsp;
-        <a  [routerLink]="['/vhicle/', vhicle.vtypeid, 'vhicleedit']" class="btn btn-primary bg-primary"  style="width:80px">Edit</a> &nbsp;
-        <button type="button" (click)="deletePost(vhicle.vtypeid)" class="btn btn-danger bg-danger"  style="width:80px">Delete</button>
+        <a  [routerLink]="['/vhicle/', vhicle.vtypeid, 'vhicleview']" class="btn btn-primary bg-primary btn-sm" style="width:80px">View</a> &nbsp;
+        <a  [routerLink]="['/vhicle/', vhicle.vtypeid, 'vhicleedit']" class="btn btn-warning bg-warning btn-sm"  style="width:80px">Edit</a> &nbsp;
+        <button type="button" (click)="deletePost(vhicle.vtypeid)" class="btn btn-danger bg-danger btn-sm"  style="width:80px">Delete</button>
       </td>
     </tr>
   </table>

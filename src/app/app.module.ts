@@ -19,6 +19,10 @@ import { VhicleindexComponent } from './Admin/vhicle/vhicleindex/vhicleindex.com
 import { VhicleviewComponent } from './Admin/vhicle/vhicleview/vhicleview.component';
 import { VhiclecreateComponent } from './Admin/vhicle/vhiclecreate/vhiclecreate.component';
 import { VhicleeditComponent } from './Admin/vhicle/vhicleedit/vhicleedit.component';
+import { TenderindexComponent } from './Admin/tender/tenderindex/tenderindex.component';
+import { TendercreateComponent } from './Admin/tender/tendercreate/tendercreate.component';
+import { TendereditComponent } from './Admin/tender/tenderedit/tenderedit.component';
+import { TenderviewComponent } from './Admin/tender/tenderview/tenderview.component';
 
 
 
@@ -33,7 +37,11 @@ const routes: Routes = [
   {path : 'vhicle/vhicleindex', component : VhicleindexComponent},
   {path : 'vhicle/:vtypeid/vhicleview', component : VhicleviewComponent},
   {path : 'vhicle/vhiclecreate', component : VhiclecreateComponent},
-  {path : 'vhicle/:vtypeid/vhicleedit', component : VhicleeditComponent}
+  {path : 'vhicle/:vtypeid/vhicleedit', component : VhicleeditComponent},
+  {path : 'tender/tenderindex', component : TenderindexComponent},
+  {path : 'tender/:tenderid/tenderview', component : TenderviewComponent},
+  {path : 'tender/tendercreate', component : TendercreateComponent},
+  {path : 'tender/:tenderid/tenderedit', component : TendereditComponent}
 ];
 
 @NgModule({
@@ -50,7 +58,11 @@ const routes: Routes = [
     VhicleindexComponent,
     VhicleviewComponent,
     VhiclecreateComponent,
-    VhicleeditComponent
+    VhicleeditComponent,
+    TenderindexComponent,
+    TendercreateComponent,
+    TendereditComponent,
+    TenderviewComponent
   ],
   imports: [
     BrowserModule,

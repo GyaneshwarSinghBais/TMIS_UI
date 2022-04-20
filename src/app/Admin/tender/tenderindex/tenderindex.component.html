@@ -1,0 +1,55 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="container">
+  <h1>Tenders</h1>
+
+  <a href="#" routerLink="/tender/tendercreate/" class="btn btn-success mt-3"
+    >Create New Tender</a
+  >
+
+  <table
+    class="table table-bordered table-hover table-active mt-3"
+    style="border: 1px"
+  >
+    <tr>
+      <th>Tender Id</th>
+      <th>Tender Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Is Finalize</th>
+    </tr>
+    <tr *ngFor="let tender of tenders">
+      <td>{{ tender.tenderid }}</td>
+      <td>{{ tender.tendername }}</td>
+      <td>{{ tender.startdate | date: "dd-M-yyyy" }}</td>
+      <td>{{ tender.enddate | date: "dd-M-yyyy" }}</td>
+      <td>
+        <div *ngIf="tender.isfinalized==='Y'; else noTender">Yes</div>
+        <ng-template #noTender> No </ng-template>
+      </td>
+      <td>
+        <a
+          [routerLink]="['/tender/', tender.tenderid, 'tenderview']"
+          class="btn btn-primary bg-primary btn-sm"
+          style="width: 80px"
+          >View</a
+        >
+        &nbsp;
+        <a
+          [routerLink]="['/tender/', tender.tenderid, 'tenderedit']"
+          class="btn btn-warning bg-warning btn-sm"
+          style="width: 80px"
+          >Edit</a
+        >
+        &nbsp;
+        <button
+          type="button"
+          (click)="deletePost(tender.tenderid)"
+          class="btn btn-danger bg-danger btn-sm"
+          style="width: 80px"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
