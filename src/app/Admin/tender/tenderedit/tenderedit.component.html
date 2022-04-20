@@ -48,14 +48,15 @@
           </div>
         </div>
 
-
+        <b style="color: red;">{{tender.startdate| date:'dd-MM-yyyy'}}</b>
+        <!-- [ngModel]="tender.startdate | date:'dd-MM-yyyy'" (ngModelChange)="tender.startdate = $event" [value]="tender.startdate | date:'yyyy-MM-dd'" -->
         <div class="form-group">
           <label for="body">Start Date</label>
           <input
             formControlName="startdate"
             id="startdate"
             type="date"
-            [(ngModel)]="tender.startdate"
+            [ngModel]="tender.startdate | date:'yyyy-MM-dd'"
             class="form-control"
           />
           <div
@@ -70,14 +71,15 @@
           </div>
         </div>
 
-
+        <b style="color: red;">{{tender.enddate | date:'dd-MM-yyyy'}}</b>
+        <!-- [(ngModel)]="tender.enddate" -->
         <div class="form-group">
           <label for="body">End Date</label>
           <input
             formControlName="enddate"
             id="enddate"
             type="date"
-            [(ngModel)]="tender.enddate"
+            [ngModel]="tender.enddate| date:'yyyy-MM-dd'"
             class="form-control"
           />
           <div

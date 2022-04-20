@@ -23,6 +23,7 @@ import { TenderindexComponent } from './Admin/tender/tenderindex/tenderindex.com
 import { TendercreateComponent } from './Admin/tender/tendercreate/tendercreate.component';
 import { TendereditComponent } from './Admin/tender/tenderedit/tenderedit.component';
 import { TenderviewComponent } from './Admin/tender/tenderview/tenderview.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -70,6 +71,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
     RouterModule.forChild(routes)
   ],
   providers: [],

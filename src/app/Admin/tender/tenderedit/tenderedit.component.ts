@@ -14,6 +14,10 @@ export class TendereditComponent implements OnInit {
   tender!: any;
   form!: FormGroup;
 
+  dateStringControl = new FormControl('2020-09-28');
+  dateObjectControl = new FormControl(new Date());
+
+
   constructor(
     public tenderservice:TenderserviceService,
     private route: ActivatedRoute,
@@ -23,7 +27,6 @@ export class TendereditComponent implements OnInit {
   ngOnInit(): void {
 
     this.id = this.route.snapshot.params['tenderid'];
-    console.log(this.id);
     this.tenderservice.find(this.id).subscribe((data: any)=>{
       this.tender = data;
       console.log(this.tender);

@@ -1,2 +1,43 @@
 <app-navbar-admin></app-navbar-admin>
-<p>tenderview works!</p>
+<div class="container">
+  <h1>View Tender</h1>
+
+  <a href="#" routerLink="/tender/tenderindex" class="btn btn-primary btn-sm">Back</a>
+
+  <div>
+      <strong>Tender Id:</strong>
+      <p>{{ tenders.tenderid }}</p>
+  </div>
+
+  <div>
+      <strong>Tender Name:</strong>
+      <p>{{ tenders.tendername }}</p>
+  </div>
+
+  <div>
+      <strong>Start Date:</strong>
+      <p>{{ tenders.startdate|date: 'dd-MM-yyyy' }}</p>
+  </div>
+
+  <div>
+    <strong>End Date:</strong>
+    <p>{{ tenders.enddate|date: 'dd-MM-yyyy' }}</p>
+</div>
+
+<div>
+  <strong>Is Finalize:</strong>
+  <ng-template [ngIf]="tenders.isfinalized == 'Y'" [ngIfElse]="loggedOut">
+    <div>
+      Yes
+    </div>
+  </ng-template>
+
+  <ng-template #loggedOut>
+    <div>
+      NO
+    </div>
+  </ng-template>
+</div>
+
+</div>
+
