@@ -24,6 +24,9 @@ import { TendercreateComponent } from './Admin/tender/tendercreate/tendercreate.
 import { TendereditComponent } from './Admin/tender/tenderedit/tenderedit.component';
 import { TenderviewComponent } from './Admin/tender/tenderview/tenderview.component';
 import { CommonModule } from '@angular/common';
+import { ContractoreditComponent } from './Admin/contractor/contractoredit/contractoredit.component';
+import { ContractorindexComponent } from './Admin/contractor/contractorindex/contractorindex.component';
+import { ContractorviewComponent } from './Admin/contractor/contractorview/contractorview.component';
 
 
 
@@ -42,7 +45,10 @@ const routes: Routes = [
   {path : 'tender/tenderindex', component : TenderindexComponent},
   {path : 'tender/:tenderid/tenderview', component : TenderviewComponent},
   {path : 'tender/tendercreate', component : TendercreateComponent},
-  {path : 'tender/:tenderid/tenderedit', component : TendereditComponent}
+  {path : 'tender/:tenderid/tenderedit', component : TendereditComponent},
+  {path : 'contractor/contractorindex', component : ContractorindexComponent},
+  {path : 'contractor/:contractorid/contractoredit', component : ContractoreditComponent},
+  {path : 'contractor/:contractorid/contractorview', component : ContractorviewComponent}
 ];
 
 @NgModule({
@@ -63,7 +69,10 @@ const routes: Routes = [
     TenderindexComponent,
     TendercreateComponent,
     TendereditComponent,
-    TenderviewComponent
+    TenderviewComponent,
+    ContractoreditComponent,
+    ContractorindexComponent,
+    ContractorviewComponent
   ],
   imports: [
     BrowserModule,

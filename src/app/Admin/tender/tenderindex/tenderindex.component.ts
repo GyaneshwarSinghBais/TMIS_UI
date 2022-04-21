@@ -32,8 +32,6 @@ export class TenderindexComponent implements OnInit {
         alert('Deleted Successfully!');
         this.fetchData();
       });
-
-
     }
   }
 

@@ -1,0 +1,55 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="container">
+  <h1>Tenders</h1>
+
+  <a href="#" routerLink="/addContractor" class="btn btn-success mt-3"
+    >Create New Contractor</a
+  >
+
+  <table
+    class="table table-bordered table-hover table-active mt-3"
+    style="border: 1px"
+  >
+    <tr>
+      <th>Contractor Id</th>
+      <th>Contractor Name</th>
+      <th>Is Central Contractor</th>
+      <th>Warehouse Id</th>
+    </tr>
+    <tr *ngFor="let contractor of contractors">
+      <td>{{ contractor.contractorid }}</td>
+      <td>{{ contractor.contractorname }}</td>
+      <td>{{ contractor.isCentralContractor }}</td>
+      <td>{{ contractor.whid }}</td>
+      <!-- <td>
+        <div *ngIf="tender.isfinalized==='Y'; else noTender">Yes</div>
+        <ng-template #noTender> No </ng-template>
+      </td> -->
+      <td>
+        <a
+          [routerLink]="['/contractor/', contractor.contractorid, 'contractorview']"
+          class="btn btn-primary bg-primary btn-sm"
+          style="width: 80px"
+          >View</a
+        >
+        &nbsp;
+        <a
+          [routerLink]="['/contractor/', contractor.contractorid, 'contractoredit']"
+          class="btn btn-warning bg-warning btn-sm"
+          style="width: 80px"
+          >Edit</a
+        >
+        &nbsp;
+        <button
+          type="button"
+          (click)="deletePost(contractor.contractorid)"
+          class="btn btn-danger bg-danger btn-sm"
+          style="width: 80px"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+

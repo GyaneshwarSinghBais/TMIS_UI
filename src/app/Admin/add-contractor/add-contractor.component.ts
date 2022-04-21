@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,FormBuilder,Validators, FormArray} from '@angular/forms';
+import { Router,ActivatedRoute } from '@angular/router';
 import { TransportService } from 'src/app/services/transport.service';
 
 @Component({
@@ -11,7 +12,12 @@ export class AddContractorComponent implements OnInit {
 
   public form!: FormGroup;
   warehouses = null;
-  constructor( private transApi:TransportService,private fb:FormBuilder) { }
+  constructor(
+    private transApi:TransportService,
+    private fb:FormBuilder,
+    private route: ActivatedRoute,
+    private router:Router
+    ) { }
 
   ngOnInit(): void {
     this.addContractorForm();
@@ -56,7 +62,9 @@ export class AddContractorComponent implements OnInit {
     this.transApi.create(this.form.value)
     .subscribe({
       next: (res) => {
-        //console.log(res);
+        console.log('befor route');
+        this.router.navigateByUrl('/contractor/contractorindex');
+        console.log('after route');
       },
       error: (e) => console.error(e)
     });

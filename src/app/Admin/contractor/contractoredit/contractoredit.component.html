@@ -1,0 +1,132 @@
+<app-navbar-admin></app-navbar-admin>
+
+<div class="container d-flex justify-content-center">
+  <div class="card border-primary mb-3 mt-5" style="width: 30%">
+    <div class="card-header"><h2>Update Contractor</h2></div>
+    <div class="card-body">
+      <h4 class="card-title">
+        <a
+          href="#"
+          routerLink="/contractor/contractorindex"
+          class="btn btn-sm btn-primary"
+          >Back</a
+        >
+      </h4>
+
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <input
+          formControlName="contractorid"
+          id="contractorid"
+          type="text"
+          [(ngModel)]="id"
+          value="hello"
+          autocomplete="off"
+          hidden
+        />
+
+        <div class="form-group">
+          <label for="title">Contractor Name:</label>
+          <input
+            formControlName="contractorname"
+            id="contractorname"
+            type="text"
+            [(ngModel)]="contractor.contractorname"
+            class="form-control"
+          />
+          <div
+            *ngIf="f['contractorname'].touched && f['contractorname'].invalid"
+            class="alert alert-danger"
+          >
+            <div
+              *ngIf="
+                f['contractorname'].errors &&
+                f['contractorname'].errors['required']
+              "
+            >
+            Contractor Name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="mb-3">
+            <label for="isCentralContractor" class="form-label fw-bold"
+              >Is Contractor Central :</label
+            >
+            <div class="form-check">
+              <input
+                id="Yes"
+                type="radio"
+                value="Y"
+                name="isCentralContractor"
+                formControlName="isCentralContractor"
+                class="form-check-input"
+                [(ngModel)]="contractor.isCentralContractor"
+              />
+              <label for="Yes">Yes</label>
+            </div>
+            <div class="form-check">
+              <input
+                id="No"
+                type="radio"
+                value="N"
+                name="isCentralContractor"
+                formControlName="isCentralContractor"
+                class="form-check-input"
+                [(ngModel)]="contractor.isCentralContractor"
+              />
+              <label for="Yes">No</label>
+            </div>
+            <div
+              *ngIf="
+                f['isCentralContractor'].touched &&
+                f['isCentralContractor'].invalid
+              "
+              class="alert alert-danger"
+            >
+              <div
+                *ngIf="
+                  f['isCentralContractor'].errors &&
+                  f['isCentralContractor'].errors['required']
+                "
+                class="small"
+              >
+                Is Central Contractor is required.
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="title">Warehouse Id:</label>
+          <input
+            formControlName="whid"
+            id="whid"
+            type="text"
+            [(ngModel)]="contractor.whid"
+            class="form-control"
+          />
+          <div
+            *ngIf="f['whid'].touched && f['whid'].invalid"
+            class="alert alert-danger"
+          >
+            <div
+              *ngIf="
+                f['whid'].errors &&
+                f['whid'].errors['required']
+              "
+            >
+              Warehouse is required.
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+          Update
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
