@@ -47,8 +47,8 @@
         formControlName = "whid"> -->
 
 
-         <label for="warehouse" class="form-label fw-bold">Warehouse:</label>
-         <select formControlName="whid" class="form-control" name="whid" >
+         <label for="warehouse" class="form-label fw-bold">Warehouse :</label>
+         <select formControlName="whid" class="form-control-sm dropdown-toggle" name="whid" >
              <option disabled>-Select Warehouse-</option>
              <option value="0">No Warehouse</option>
              <option *ngFor="let wh of warehouses" [value]="wh.warehouseid">{{wh.warehousename}}</option>

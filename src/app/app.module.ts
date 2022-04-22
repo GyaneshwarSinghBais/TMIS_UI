@@ -27,6 +27,10 @@ import { CommonModule } from '@angular/common';
 import { ContractoreditComponent } from './Admin/contractor/contractoredit/contractoredit.component';
 import { ContractorindexComponent } from './Admin/contractor/contractorindex/contractorindex.component';
 import { ContractorviewComponent } from './Admin/contractor/contractorview/contractorview.component';
+import { RcindexComponent } from './Admin/rc/rcindex/rcindex.component';
+import { RccreateComponent } from './Admin/rc/rccreate/rccreate.component';
+import { RcviewComponent } from './Admin/rc/rcview/rcview.component';
+import { RceditComponent } from './Admin/rc/rcedit/rcedit.component';
 
 
 
@@ -48,7 +52,11 @@ const routes: Routes = [
   {path : 'tender/:tenderid/tenderedit', component : TendereditComponent},
   {path : 'contractor/contractorindex', component : ContractorindexComponent},
   {path : 'contractor/:contractorid/contractoredit', component : ContractoreditComponent},
-  {path : 'contractor/:contractorid/contractorview', component : ContractorviewComponent}
+  {path : 'contractor/:contractorid/contractorview', component : ContractorviewComponent},
+  {path : 'rc/rcindex', component : RcindexComponent},
+  {path : 'rc/:rcid/rcview', component : RcviewComponent},
+  {path : 'rc/rccreate', component : RccreateComponent},
+  {path : 'rc/:rcid/rcedit', component : RceditComponent}
 ];
 
 @NgModule({
@@ -72,7 +80,11 @@ const routes: Routes = [
     TenderviewComponent,
     ContractoreditComponent,
     ContractorindexComponent,
-    ContractorviewComponent
+    ContractorviewComponent,
+    RcindexComponent,
+    RccreateComponent,
+    RcviewComponent,
+    RceditComponent
   ],
   imports: [
     BrowserModule,

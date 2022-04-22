@@ -1,0 +1,61 @@
+<app-navbar-admin></app-navbar-admin>
+<div class="container">
+  <h1>Rate Contracts (RC)</h1>
+
+  <a href="#" routerLink="/rc/rccreate/" class="btn btn-success mt-3"
+    >Create New RC</a
+  >
+
+  <table
+    class="table table-bordered table-hover table-active mt-3"
+    style="border: 1px"
+  >
+    <tr>
+      <th>RC Id</th>
+      <th>Tender</th>
+      <th>Vhicle Type</th>
+      <th>Base Price</th>
+      <th>GST</th>
+      <th>Final Rate(With GST)</th>
+      <th>RC Start Date</th>
+      <th>RC End Date</th>
+    </tr>
+    <tr *ngFor="let rc of ratecontracts">
+      <td>{{ rc.rcId }}</td>
+      <td>{{ rc.tenderId }}</td>
+      <td>{{ rc.vtypeId }}</td>
+      <td>{{ rc.basePrice |currency:'INR' }}</td>
+      <td>{{ rc.gst }}</td>
+      <td>{{ rc.finalRateWithGST |currency:'INR' }}</td>
+      <td>{{ rc.rCstartDate | date: "dd-MM-yyyy" }}</td>
+      <td>{{ rc.rcEndDate | date: "dd-MM-yyyy"}}</td>
+
+
+      <td>
+        <a
+          [routerLink]="['/rc/', rc.rcId, 'rcview']"
+          class="btn btn-primary bg-primary btn-sm"
+          style="width: 80px"
+          >View</a
+        >
+        &nbsp;
+        <a
+          [routerLink]="['/rc/', rc.rcId, 'rcedit']"
+          class="btn btn-warning bg-warning btn-sm"
+          style="width: 80px"
+          >Edit</a
+        >
+        &nbsp;
+        <button
+          type="button"
+          (click)="deletePost(rc.rcId)"
+          class="btn btn-danger bg-danger btn-sm"
+          style="width: 80px"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+

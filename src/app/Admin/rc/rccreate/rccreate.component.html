@@ -1,0 +1,75 @@
+<app-navbar-admin></app-navbar-admin>
+
+<div class="container  d-flex justify-content-center">
+<div class="card border-primary mb-3 mt-5" style="width: 50%;">
+  <div class="card-header">
+    <h2>Create New Rate Contract(RC)</h2>
+    <a href="#" routerLink="/rc/rcindex" class="btn btn-primary btn-sm">Back</a>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+
+      <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="title" class="form-label fw-bold">RC ID:</label>
+            <input
+                formControlName="tendername"
+                id="tendername"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['tendername'].touched && f['tendername'].invalid" class="alert alert-danger">
+                <div *ngIf="f['tendername'].errors && f['tendername'].errors['required']">Tender Name is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="body" class="form-label fw-bold">Start Date</label>
+            <input
+                formControlName="startdate"
+                id="startdate"
+                type="date"
+                class="form-control">
+            <div *ngIf="f['startdate'].touched && f['startdate'].invalid" class="alert alert-danger">
+                <div *ngIf="f['startdate'].errors && f['startdate'].errors['required']">Start Date is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="body" class="form-label fw-bold">End Date</label>
+          <input
+              formControlName="enddate"
+              id="enddate"
+              type="date"
+              class="form-control">
+          <div *ngIf="f['enddate'].touched && f['enddate'].invalid" class="alert alert-danger">
+              <div *ngIf="f['enddate'].errors && f['enddate'].errors['required']">End Date is required.</div>
+          </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="isFinalized" class="form-label fw-bold">Is Finalize :</label>
+      <div class="form-check">
+        <input id="Yes" type="radio" value="Y" name="isFinalized" formControlName="isFinalized"
+        class="form-check-input"  >
+        <label for="Yes">Yes</label>
+     </div>
+     <div class="form-check">
+        <input id="No" type="radio" value="N" name="isFinalized" formControlName="isFinalized"
+        class="form-check-input"   checked>
+        <label for="Yes">No</label>
+     </div>
+     <div *ngIf="f['isFinalized'].touched && f['isFinalized'].invalid" class="alert alert-danger">
+      <div *ngIf="f['isFinalized'].errors && f['isFinalized'].errors['required']" class="small">isCentralContractor is required.</div>
+    </div>
+    </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+
+
+    </blockquote>
+  </div>
+</div>
+</div>
+
