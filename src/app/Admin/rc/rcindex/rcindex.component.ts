@@ -16,7 +16,12 @@ export class RcindexComponent implements OnInit {
   }
 
   fetchData() {
-    this.rcservice.getAll().subscribe((data: any[]) => {
+    // this.rcservice.getAll().subscribe((data: any[]) => {
+    //   this.ratecontracts = data;
+    //   console.log(this.ratecontracts);
+    // });
+
+    this.rcservice.getAllbyDTO().subscribe((data: any[]) => {
       this.ratecontracts = data;
       console.log(this.ratecontracts);
     });

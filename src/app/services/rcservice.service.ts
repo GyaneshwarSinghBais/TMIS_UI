@@ -28,6 +28,15 @@ export class RcserviceService {
     )
   }
 
+  getAllbyDTO(): Observable<any> {
+
+    return this.httpClient.get(this.apiURL + '/RC/GetRCsDTo')
+
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
   create(post:any): Observable<any> {
 
     return this.httpClient.post(this.apiURL + '/RC/', JSON.stringify(post), this.httpOptions)

@@ -2,15 +2,11 @@
 <div class="container">
   <h1>Rate Contracts (RC)</h1>
 
-  <a href="#" routerLink="/rc/rccreate/" class="btn btn-success mt-3"
-    >Create New RC</a
-  >
+  <a href="#" routerLink="/rc/rccreate/" class="btn btn-success mt-3">Create New RC</a>
 
-  <table
-    class="table table-bordered table-hover table-active mt-3"
-    style="border: 1px"
-  >
+  <table class="table table-bordered mt-3">
     <tr>
+      <th>S.No.</th>
       <th>RC Id</th>
       <th>Tender</th>
       <th>Vhicle Type</th>
@@ -20,10 +16,10 @@
       <th>RC Start Date</th>
       <th>RC End Date</th>
     </tr>
-    <tr *ngFor="let rc of ratecontracts">
-      <td>{{ rc.rcId }}</td>
-      <td>{{ rc.tenderId }}</td>
-      <td>{{ rc.vtypeId }}</td>
+    <tr *ngFor="let rc of ratecontracts; let i=index">
+      <td>{{ i+1}}</td>
+      <td>{{ rc.tendername }}</td>
+      <td>{{ rc.vtypename }}</td>
       <td>{{ rc.basePrice |currency:'INR' }}</td>
       <td>{{ rc.gst }}</td>
       <td>{{ rc.finalRateWithGST |currency:'INR' }}</td>
@@ -32,30 +28,16 @@
 
 
       <td>
-        <a
-          [routerLink]="['/rc/', rc.rcId, 'rcview']"
-          class="btn btn-primary bg-primary btn-sm"
-          style="width: 80px"
-          >View</a
-        >
+        <a [routerLink]="['/rc/', rc.rcId, 'rcview']" class="btn btn-primary bg-primary btn-sm"
+          style="width: 80px">View</a>
         &nbsp;
-        <a
-          [routerLink]="['/rc/', rc.rcId, 'rcedit']"
-          class="btn btn-warning bg-warning btn-sm"
-          style="width: 80px"
-          >Edit</a
-        >
+        <a [routerLink]="['/rc/', rc.rcId, 'rcedit']" class="btn btn-warning bg-warning btn-sm"
+          style="width: 80px">Edit</a>
         &nbsp;
-        <button
-          type="button"
-          (click)="deletePost(rc.rcId)"
-          class="btn btn-danger bg-danger btn-sm"
-          style="width: 80px"
-        >
+        <button type="button" (click)="deletePost(rc.rcId)" class="btn btn-danger bg-danger btn-sm" style="width: 80px">
           Delete
         </button>
       </td>
     </tr>
   </table>
 </div>
-
