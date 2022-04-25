@@ -1,1 +1,118 @@
-<p>rcedit works!</p>
+<app-navbar-admin></app-navbar-admin>
+
+<div class="container d-flex justify-content-center">
+  <div class="card border-primary mb-3 mt-5" style="width: 50%">
+    <div class="card-header">
+      <h2>Edit Rate Contract(RC)</h2>
+      <a href="#" routerLink="/rc/rcindex" class="btn btn-primary btn-sm">Back</a>
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <div class="form-group">
+
+            <input formControlName="rcId" id="rcId" type="text" [(ngModel)]="id" value="hello" autocomplete="off"
+              hidden />
+
+            <label for="tenderid" class="form-label fw-bold">Select Tender :</label>
+            <select formControlName="tenderid" class="form-select" >
+              <option disabled>-Select Tender-</option>
+              <option *ngFor="let tender of tenders" [value]="tender.tenderid">
+                {{ tender.tendername }}
+              </option>
+            </select>
+            <!-- error block -->
+            <div *ngIf="f['tenderid'].touched && f['tenderid'].invalid" class="alert alert-danger">
+              <div *ngIf="f['tenderid'].errors && f['tenderid'].errors['required']" class="small">
+                Warehouse is Required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="vtypeId" class="form-label fw-bold">Select Vhicle :</label>
+            <select formControlName="vtypeId" class="form-select" name="vtypeId">
+              <option disabled>-Select Vhicle-</option>
+              <option *ngFor="let vhicle of vhicles" [value]="vhicle.vtypeid">
+                {{ vhicle.vtypename }}
+              </option>
+            </select>
+            <!-- error block -->
+            <div *ngIf="f['vtypeId'].touched && f['vtypeId'].invalid" class="alert alert-danger">
+              <div *ngIf="f['vtypeId'].errors && f['vtypeId'].errors['required']" class="small">
+                Vhicle is Required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="basePrice" class="form-label fw-bold">Base Price</label>
+            <input formControlName="basePrice" id="basePrice" type="number" class="form-control" />
+            <div *ngIf="f['basePrice'].touched && f['basePrice'].invalid" class="alert alert-danger">
+              <div *ngIf="
+                  f['basePrice'].errors && f['basePrice'].errors['required']
+                ">
+                Base Price is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="gst" class="form-label fw-bold">GST</label>
+            <select formControlName="gst" class="form-select" name="gst">
+              <option disabled>-Select GST-</option>
+              <option *ngFor="let gst of gstList" [value]="gst">
+                {{ gst }}
+              </option>
+            </select>
+            <!-- error block -->
+            <div *ngIf="f['gst'].touched && f['gst'].invalid" class="alert alert-danger">
+              <div *ngIf="f['gst'].errors && f['gst'].errors['required']" class="small">
+                Vhicle is Required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="finalRateWithGST" class="form-label fw-bold">Final Rate(With GST)</label>
+            <input formControlName="finalRateWithGST" id="finalRateWithGST" type="number" class="form-control" />
+            <div *ngIf="f['finalRateWithGST'].touched && f['finalRateWithGST'].invalid" class="alert alert-danger">
+              <div *ngIf="
+                  f['finalRateWithGST'].errors && f['finalRateWithGST'].errors['required']
+                ">
+                Final Rate is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="rCstartDate" class="form-label fw-bold">RC Start Date</label>
+            <input formControlName="rCstartDate" id="rCstartDate" type="date" class="form-control" />
+            <div *ngIf="f['rCstartDate'].touched && f['rCstartDate'].invalid" class="alert alert-danger">
+              <div *ngIf="
+                  f['rCstartDate'].errors && f['rCstartDate'].errors['required']
+                ">
+                Start Date is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="rcEndDate" class="form-label fw-bold">RC End Date</label>
+            <input formControlName="rcEndDate" id="rcEndDate" type="date" class="form-control" />
+            <div *ngIf="f['rcEndDate'].touched && f['rcEndDate'].invalid" class="alert alert-danger">
+              <div *ngIf="f['rcEndDate'].errors && f['rcEndDate'].errors['required']">
+                End Date is required.
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary mt-2" type="submit" [disabled]="!form.valid" >
+            Submit
+          </button>
+
+        </form>
+      </blockquote>
+    </div>
+  </div>
+</div>
