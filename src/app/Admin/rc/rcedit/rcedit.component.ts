@@ -118,7 +118,7 @@ export class RceditComponent implements OnInit {
     console.log(this.form.value);
     this.rcservice.update(this.id, this.form.value).subscribe((res: any) => {
       console.log('Post updated successfully!');
-      this.router.navigateByUrl('/tc/rcindex');
+      this.router.navigateByUrl('/rc/rcindex');
     });
   }
 
