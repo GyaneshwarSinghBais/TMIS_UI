@@ -31,32 +31,13 @@ import { RcindexComponent } from './Admin/rc/rcindex/rcindex.component';
 import { RccreateComponent } from './Admin/rc/rccreate/rccreate.component';
 import { RcviewComponent } from './Admin/rc/rcview/rcview.component';
 import { RceditComponent } from './Admin/rc/rcedit/rcedit.component';
+import {AdminRoutingModule} from './Admin/admin-routing.module';
 
 
 
 const routes: Routes = [
   {path : '', component : LoginComponent},
-  {path : 'VhicleType', component : ShowVhicleTypeComponent},
-  {path : 'contractor', component : ShowContractorComponent},
-  {path : 'contractorEntry', component : ContractorEntryComponent},
-  {path : 'addContractor', component : AddContractorComponent},
   {path : 'login', component : LoginComponent},
-  {path : 'adminHome', component : AdminHomeComponent},
-  {path : 'vhicle/vhicleindex', component : VhicleindexComponent},
-  {path : 'vhicle/:vtypeid/vhicleview', component : VhicleviewComponent},
-  {path : 'vhicle/vhiclecreate', component : VhiclecreateComponent},
-  {path : 'vhicle/:vtypeid/vhicleedit', component : VhicleeditComponent},
-  {path : 'tender/tenderindex', component : TenderindexComponent},
-  {path : 'tender/:tenderid/tenderview', component : TenderviewComponent},
-  {path : 'tender/tendercreate', component : TendercreateComponent},
-  {path : 'tender/:tenderid/tenderedit', component : TendereditComponent},
-  {path : 'contractor/contractorindex', component : ContractorindexComponent},
-  {path : 'contractor/:contractorid/contractoredit', component : ContractoreditComponent},
-  {path : 'contractor/:contractorid/contractorview', component : ContractorviewComponent},
-  {path : 'rc/rcindex', component : RcindexComponent},
-  {path : 'rc/:rcid/rcview', component : RcviewComponent},
-  {path : 'rc/rccreate', component : RccreateComponent},
-  {path : 'rc/:rcid/rcedit', component : RceditComponent}
 ];
 
 @NgModule({
@@ -89,6 +70,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
