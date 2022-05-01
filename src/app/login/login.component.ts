@@ -7,6 +7,7 @@ import {
   FormArray,FormsModule,ReactiveFormsModule
 } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +15,15 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+
   public form!: FormGroup;
+  responsedata : any;
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private apiService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
@@ -44,20 +49,17 @@ export class LoginComponent implements OnInit {
   }
 
   onClickSubmit() {
-    console.log(this.form.value);
-
-    if (this.form.value.userName == 'admin' || this.form.value == 'admin') {
-      this.router.navigate(['../adminHome']);
-    } else {
-      alert('Incorrect Credentials');
+    if(this.form.valid){
+      this.apiService.doLogin(this.form.value).subscribe((result:any)=>{
+        if(result!=null){
+          this.responsedata = result;
+          localStorage.setItem('token',this.responsedata)
+          this.router.navigate(['../adminHome']);
+        }
+      },(error)=>{
+        alert('You have entered wrong credentials')
+      })
     }
-
-    // this.transApi.create(this.form.value)
-    // .subscribe({
-    //   next: (res) => {
-    //     //console.log(res);
-    //   },
-    //   error: (e) => console.error(e)
-    // });
   }
+
 }

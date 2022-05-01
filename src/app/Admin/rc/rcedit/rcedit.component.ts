@@ -108,14 +108,11 @@ export class RceditComponent implements OnInit {
   bindRateContract() {
     this.rcservice.find(this.id).subscribe((data: any) => {
       this.ratecontract = data;
-      console.log(this.id);
-      console.log(this.ratecontract);
       this.setValue();
     });
   }
 
   submit() {
-    console.log(this.form.value);
     this.rcservice.update(this.id, this.form.value).subscribe((res: any) => {
       console.log('Post updated successfully!');
       this.router.navigateByUrl('/rc/rcindex');
@@ -123,8 +120,6 @@ export class RceditComponent implements OnInit {
   }
 
   setValue() {
-    console.log('set value');
-
     var datePipe = new DatePipe("en-US");
     this.form.setValue({
       rcId: this.ratecontract.rcId,

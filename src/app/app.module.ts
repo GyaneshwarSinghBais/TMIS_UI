@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 //import { NavbarComponent } from './navbar/navbar.component';
 import { ShowContractorComponent } from './Contractor/show-contractor/show-contractor.component';
@@ -32,6 +32,8 @@ import { RccreateComponent } from './Admin/rc/rccreate/rccreate.component';
 import { RcviewComponent } from './Admin/rc/rcview/rcview.component';
 import { RceditComponent } from './Admin/rc/rcedit/rcedit.component';
 import {AdminRoutingModule} from './Admin/admin-routing.module';
+import { TokenError } from '@angular/compiler/src/ml_parser/lexer';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 
@@ -77,7 +79,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
