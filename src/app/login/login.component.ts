@@ -4,7 +4,9 @@ import {
   FormControl,
   FormBuilder,
   Validators,
-  FormArray,FormsModule,ReactiveFormsModule
+  FormArray,
+  FormsModule,
+  ReactiveFormsModule,
 } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
@@ -15,9 +17,8 @@ import { AuthenticationService } from '../services/authentication.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
   public form!: FormGroup;
-  responsedata : any;
+  responsedata: any;
 
   constructor(
     private fb: FormBuilder,
@@ -49,17 +50,26 @@ export class LoginComponent implements OnInit {
   }
 
   onClickSubmit() {
-    if(this.form.valid){
-      this.apiService.doLogin(this.form.value).subscribe((result:any)=>{
-        if(result!=null){
-          this.responsedata = result;
-          localStorage.setItem('token',this.responsedata)
-          this.router.navigate(['../adminHome']);
+    if (this.form.valid) {
+      this.apiService.doLogin(this.form.value).subscribe(
+        (result: any) => {
+          if (result != null) {
+            this.responsedata = result;
+            console.log(this.responsedata);
+            localStorage.setItem('token', this.responsedata);
+            if (this.apiService.getRole() == 'AD') {
+              this.router.navigate(['../adminHome']);
+            } else if (this.apiService.getRole() == 'WH') {
+              this.router.navigate(['../warehouseHome']);
+            } else if (this.apiService.getRole() == 'FI') {
+              this.router.navigate(['../financeHome']);
+            }
+          }
+        },
+        (error) => {
+          alert('You have entered wrong credentials');
         }
-      },(error)=>{
-        alert('You have entered wrong credentials')
-      })
+      );
     }
   }
-
 }

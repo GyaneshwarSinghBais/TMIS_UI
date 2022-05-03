@@ -68,6 +68,21 @@
 
       </ul>
     </div>
+    <form class="form-inline my-2 my-lg-0">
+
+      <div [ngSwitch]="role">
+        <div *ngSwitchCase="'AD'"><label class="form-label text-warning  fw-bold text-sm-start" >Admin &nbsp;</label></div>
+        <div *ngSwitchCase="'WH'"><label class="form-label text-warning  fw-bold small" >Warehouse &nbsp;</label></div>
+        <div *ngSwitchCase="'FI'"><label class="form-label text-warning  fw-bold small" >Finance &nbsp;</label></div>
+        <div *ngSwitchDefault><label class="form-label text-warning  fw-bold" >--</label></div>
+      </div>
+    </form>
+    <form class="form-inline my-2 my-lg-0">
+      <label class="form-label text-warning  fw-bold small">({{username}})</label>
+    </form >
+    <form class="form-inline my-2 my-lg-0" (ngSubmit)="onLogout()">
+     &nbsp; <button type="submit" class="btn btn-danger btn-sm"  >Logout</button>
+    </form>
   </div>
 </nav>
 

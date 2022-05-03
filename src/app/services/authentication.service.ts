@@ -36,16 +36,36 @@ export class AuthenticationService {
     return localStorage.getItem('token')||'';
   }
 
-  HaveAccess(){
+  getFinalData(){
     var loggintoken = localStorage.getItem('token')||'';
     var _extractedtoken = loggintoken.split('.')[1];
     var _atobdata = atob(_extractedtoken);
     var finaldata = JSON.parse(_atobdata);
+    return finaldata;
+  }
+
+  HaveAccess(){
+    var finaldata =this.getFinalData();
     if(finaldata.role == 'AD'){    //admin
       return true;
     }
    alert('You not having access');
    return false;
+  }
+
+  getRole(){
+    var finaldata =this.getFinalData();
+    return finaldata.role;
+  }
+
+  getUserName(){
+    var finaldata =this.getFinalData();
+    return finaldata.unique_name;
+  }
+
+  proceedLogout(){
+    localStorage.removeItem('token');
+    localStorage.clear();
   }
 
 
