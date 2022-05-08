@@ -60,9 +60,9 @@ export class LoginComponent implements OnInit {
             if (this.apiService.getRole() == 'AD') {
               this.router.navigate(['../adminHome']);
             } else if (this.apiService.getRole() == 'WH') {
-              this.router.navigate(['../warehouseHome']);
+              this.router.navigate(['../warehousehome']);
             } else if (this.apiService.getRole() == 'FI') {
-              this.router.navigate(['../financeHome']);
+              this.router.navigate(['../financehome']);
             }
           }
         },

@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/warehousehome">CGMSC</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/warehousehome">Home</a>
+        </li>
+
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Contractor
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/contractor">Show Contractor</a></li>
+            <li><a class="dropdown-item" href="/contractor/contractorindex">Add Contractor</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li> -->
+
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkVhicle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Vhicle
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkVhicle">
+            <li><a class="dropdown-item" href="/VhicleType">Show Vhicle</a></li>
+            <li><a class="dropdown-item" href="/vhicle/vhicleindex">Add Vhicle</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li> -->
+
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkTender" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tender
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkTender">
+            <li><a class="dropdown-item" href="/tender/tenderindex">Show Tender</a></li>
+            <li><a class="dropdown-item" href="/tender/tenderindex">Add Tender</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li> -->
+
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkRC" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Rate Contract(RC)
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkRC">
+            <li><a class="dropdown-item" href="#">Show RC</a></li>
+            <li><a class="dropdown-item" href="/rc/rcindex">Add RC</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li> -->
+
+
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/VhicleType">Vhicle Type</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/contractor">Contractor</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/contractorEntry">Contractor Entry</a>
+        </li> -->
+
+      </ul>
+    </div>
+    <form class="form-inline my-2 my-lg-0">
+
+      <div [ngSwitch]="role">
+        <div *ngSwitchCase="'AD'"><label class="form-label text-warning  fw-bold text-sm-start" >Admin &nbsp;</label></div>
+        <div *ngSwitchCase="'WH'"><label class="form-label text-warning  fw-bold small" >Warehouse &nbsp;</label></div>
+        <div *ngSwitchCase="'FI'"><label class="form-label text-warning  fw-bold small" >Finance &nbsp;</label></div>
+        <div *ngSwitchDefault><label class="form-label text-warning  fw-bold" >--</label></div>
+      </div>
+    </form>
+    <form class="form-inline my-2 my-lg-0">
+      <label class="form-label text-warning  fw-bold small">({{username}})</label>
+    </form >
+    <form class="form-inline my-2 my-lg-0" (ngSubmit)="onLogout()">
+     &nbsp; <button type="submit" class="btn btn-danger btn-sm"  >Logout</button>
+    </form>
+  </div>
+</nav>
+
+
+

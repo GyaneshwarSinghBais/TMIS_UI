@@ -44,14 +44,37 @@ export class AuthenticationService {
     return finaldata;
   }
 
+  //Admin
   HaveAccess(){
     var finaldata =this.getFinalData();
     if(finaldata.role == 'AD'){    //admin
       return true;
     }
-   alert('You not having access');
+   //alert('You not having access');
+   console.log('Yo not having access, Only Admin');
    return false;
   }
+
+   //Warehouse
+   HaveAccessWarehouse(){
+    var finaldata =this.getFinalData();
+    if(finaldata.role == 'WH'){    //warehouse
+      return true;
+    }
+   console.log('Yo not having access, Only Warehouse');
+   return false;
+  }
+
+  //Finance
+  HaveAccessFinance(){
+    var finaldata =this.getFinalData();
+    if(finaldata.role == 'FI'){    //finance
+      return true;
+    }
+   console.log('Yo not having access, Only Finance');
+   return false;
+  }
+
 
   getRole(){
     var finaldata =this.getFinalData();

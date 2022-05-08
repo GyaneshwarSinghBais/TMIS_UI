@@ -34,6 +34,12 @@ import { RceditComponent } from './Admin/rc/rcedit/rcedit.component';
 import {AdminRoutingModule} from './Admin/admin-routing.module';
 import { TokenError } from '@angular/compiler/src/ml_parser/lexer';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { WarehouseHomeComponent } from './warehouse/warehouse-home/warehouse-home.component';
+import { WarehouseroutingRoutingModule } from './warehouse/warehouserouting/warehouserouting-routing.module';
+import { FinanceHomeComponent } from './finance/finance-home/finance-home.component';
+import { FinanceroutingRoutingModule } from './finance/financerouting/financerouting-routing.module';
+import { NavbarWarehouseComponent } from './warehouse/navbar-warehouse/navbar-warehouse.component';
+import { NavbarFinanceComponent } from './finance/navbar-finance/navbar-finance.component';
 
 
 
@@ -67,12 +73,18 @@ const routes: Routes = [
     RcindexComponent,
     RccreateComponent,
     RcviewComponent,
-    RceditComponent
+    RceditComponent,
+    WarehouseHomeComponent,
+    FinanceHomeComponent,
+    NavbarWarehouseComponent,
+    NavbarFinanceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AdminRoutingModule,
+    FinanceroutingRoutingModule,
+    WarehouseroutingRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
